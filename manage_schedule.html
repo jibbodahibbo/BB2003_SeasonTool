@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+  <!--Move below shared header-->
+  <link rel="stylesheet" href="styles.css">
+  <script src="fields.js" charset="utf-8"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.min.js">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<meta http-equiv="Cache-control" content="public">
+
+<!--Move above to shared header-->
+<script src="utilities.js" charset="utf-8"></script>
+<script src="schedule_manager.js" charset="utf-8"></script>
+<script src="fields.js" charset="utf-8"></script>
+<script src="team_names.js" charset="utf-8"></script>
+<script src="scheduleObj.js" charset="utf-8"></script>
+<script src="rosterObj.js" charset="utf-8"></script>
+<script src="teamRosterForm.js" charset="utf-8"></script>
+<script src="players.js" charset="utf-8"></script>
+<script src="team_colors.js" charset="utf-8"></script>
+<script src="season3coachfile.js" charset="utf-8"></script>
+
+    <meta charset="utf-8">
+    <title>Manage Season</title>
+  </head>
+  <body onload="populateForm()">
+
+    <br>
+    <br>
+
+  <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+    <form id="coach_submission">
+        <div class="form-group">
+          <label for="coachfiletext">Paste Coach File Text Below</label>
+          <button type="button" onclick="submitCoachFile()" class="btn btn-primary mb-2"> Upload</button>
+          <button data-toggle="tooltip" data-placement="top" title="Uses a copy of Season 3's coach file" type="button" onclick="submitS3CoachFile()" class="btn btn-success mb-2">Season 3 Rosters</button>
+
+          <textarea  style="font-size: 8pt" class="form-control" id="coachfiletext" rows="30"></textarea>
+        </div>
+    </form>
+      </div><!-- end col-->
+  </div> <!-- end Row-->
+
+
+
+<!--Big Form -->
+<form class="coach_show_form" action="index.html" method="post">
+
+  <h3>General Options</h3>
+  <!--General Section-->
+  <div id="coach_show" class="row ">
+     <div class="col-md-12 d-flex align-items-baseline">
+    <div class="form-group">
+      <label for="gamecomplete_form">Game Complete?</label>
+      <select class="form-control" id="gamecomplete_form">
+        <option id="gamecomplete0" value="0">No</option>
+        <option id="gamecomplete1" value="1">Yes</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+        <label for="gamenum_form">Game Number?</label>
+        <input  maxlength="2" size="2"  type="text" class="form-control" id="gamenum_form" placeholder="0">
+
+    </div>
+
+    <div class="form-group">
+      <label for="field_form">Home Field</label>
+      <select class="form-control" id="fieldnum_form">
+
+      </select>
+    </div>
+
+    <div class="form-group">
+        <label for="inninsgnum_form">Inning Halves</label>
+        <input type="text" maxlength="2" size="2" class="form-control" id="inningsnum_form" placeholder="0">
+    </div>
+
+
+    <div class="form-group">
+      <label for="skilssnum_form">Skill</label>
+      <select class="form-control" id="skillsnum_form">
+        <option  value="0">Easy</option>
+        <option  value="1">Medium</option>
+        <option  value="2">Hard</option>
+      </select>
+    </div>
+  </div>
+  </div>
+  <!--General Section2-->
+  <div id="coach_show" class="row ">
+         <div class="col-md-12 d-flex align-items-baseline">
+        <div class="form-group">
+          <label for="batcircle_form">Bat Circle?</label>
+          <select class="form-control" id="batcircle_form">
+            <option value="0">Yes</option>
+            <option value="1">No</option>
+          </select>
+      </div>
+
+
+      <div class="form-group">
+        <label for="pitchx_form">Pitch X?</label>
+        <select class="form-control" id="pitchx_form">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="noerrors_form">Errors?</label>
+        <select class="form-control" id="noerrors_form">
+          <option value="0">Yes</option>
+          <option value="1">No</option>
+        </select>
+      </div>
+
+
+
+      <div class="form-group">
+          <label for="coachname_form">Coach Name</label>
+          <input type="text" maxlength="20" size="10" class="form-control" id="coachname_form" placeholder="Coach Name">
+      </div>
+
+
+      <div class="form-group">
+        <label for="over_form">Over?</label>
+        <select class="form-control" id="over_form">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="glorious_form">Glorious Victory?</label>
+        <select class="form-control" id="glorious_form">
+          <option value="0">No</option>
+          <option value="1">Yes</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+          <label for="options_form">options</label>
+          <input type="text" maxlength="20" size="10" class="form-control" id="options_form" placeholder="0">
+      </div>
+
+        </div>
+  </div>
+
+  <h3>Team Option</h3>
+  <!--Player Section-->
+  <div id="coach_show" class="row ">
+       <div class="col-md-12 d-flex align-items-baseline">
+
+         <div class="form-group">
+             <label for="division_form">Team Number</label>
+             <input type="text" maxlength="2" size="2" class="form-control" id="division_form" placeholder="0">
+         </div>
+
+         <div class="form-group">
+           <label for="teamname1_form">Team Name 1</label>
+           <select class="form-control" id="teamname1_form">
+
+           </select>
+         </div>
+
+         <div class="form-group">
+           <label for="teamname2_form">Team Name 2</label>
+           <select class="form-control" id="teamname2_form">
+
+           </select>
+         </div>
+
+         <div class="form-group">
+             <label for="teamcolor1_form">Team Color 1</label>
+             <input type="text" maxlength="3" size="3" class="form-control" id="teamcolor1_form" placeholder="0">
+         </div>
+         <div class="form-group">
+             <label for="teamcolor2_form">Team Color 2</label>
+             <input type="text" maxlength="3" size="3" class="form-control" id="teamcolor2_form" placeholder="0">
+         </div>
+
+
+       </div>
+    </div>
+
+<div class="schedules_style">
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsesched" aria-expanded="false" aria-controls="collapsesched">
+        Schedules
+      </button>
+      <div class="collapse" id="collapsesched">
+      <div class="row" id= "schedule_tabs">
+        <div class="col-md-12">
+              <h3>Teams</h3>
+              <ul id="schedule_links" class="nav nav-tabs nav-item">
+            </ul>
+              </div>
+      </div>
+          <div id="coach_show" class="row">
+            <div id="schedules_tabs" class="tab-content">
+            </div>
+          </div>
+      </div>
+</div>
+
+<!-- Rosters form -->
+<div class="roster_style">
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapserost" aria-expanded="false" aria-controls="collapserost">
+        Team Info
+      </button>
+      <div class="collapse" id="collapserost">
+      <div class="row" id= "schedule_tabs">
+        <div class="col-md-12">
+              <h3>Teams</h3>
+              <ul id="roster_links" class="nav nav-tabs nav-item">
+                <!--Auto Generated Tab Links-->
+              </ul>
+        </div>
+      </div>
+      <div id="coach_show" class="row">
+        <div id="roster_tabs" class="tab-content">
+            <!--Auto Generate Below -->
+        </div>
+      </div>
+          </div>
+        </div>
+
+<br>
+
+<!--AL DIVISION TEAMS !-->
+<div id="divisions_show" class="row ">
+   <div class="col-md-4">
+           <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Team</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+        </tbody>
+      </table>
+   </div>
+   <div class="col-md-4">
+           <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Team</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+        </tbody>
+      </table>
+   </div>
+   <div class="col-md-4">
+           <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Team</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+        </tbody>
+      </table>
+   </div>
+</div>
+<!--NL DIVISION TEAMS !-->
+<div id="divisions_show" class="row ">
+   <div class="col-md-4">
+           <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Team</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+        </tbody>
+      </table>
+   </div>
+   <div class="col-md-4">
+           <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Team</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+        </tbody>
+      </table>
+   </div>
+   <div class="col-md-4">
+           <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">ID</th>
+            <th scope="col">Team</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+          <tr class= "divisions_name">
+          </tr>
+        </tbody>
+      </table>
+   </div>
+</div>
+
+</form>
+<br>
+<br>
+
+<button type="button" onclick="generateCoachFile()" class="btn btn-primary mb-2"> Generate Coach File</button>
+
+<div id="coach_text_row" class="row">
+  <div  class="col-md-12">
+    <p>
+      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapsecode" aria-expanded="false" aria-controls="collapsecode">
+        Show Coach File
+      </button>
+        <button data-toggle="tooltip" data-placement="top" title="Copies coach file, don't forget to generate the file after any changes" onclick="copyCoachFile()" class="btn btn-success" type="button" >
+          Copy Coach File
+        </button>
+        <button data-toggle="tooltip" data-placement="top" title="Downloads the coach file,  don't forget to generate the file after any changes" class="btn btn-success" type="button" >
+          <a style="text-decoration:none;color:white;" id="coach_download" href="" download="Baseball2003.c01">Download Coach File</a>
+        </button>
+        <script type="text/javascript">
+        $("a#coach_download").click(function(){
+              var data = new_coach_array.join("\r\n");
+              this.href = "data:text/plain;charset=UTF-8,"  + encodeURIComponent(data);
+              });
+        </script>
+    </p>
+    <div class="collapse" id="collapsecode">
+      <div class="card card-body">
+        <code id="coach_text_show">
+        </code>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+  </body>
+</html>

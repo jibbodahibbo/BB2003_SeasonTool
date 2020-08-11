@@ -1,0 +1,79 @@
+.ui-drop-hover{
+  border:2px solid #bbb;
+  list-style:none;
+}
+#dragdiv li,#dropdiv li{
+  border:1px solid #bbb;
+  list-style:none;
+  width:150px;
+}
+#dropdiv li{
+  padding-left:2px;
+  list-style:none;
+
+}
+#maindiv{
+  border:2px solid #bbb;
+  list-style:none;
+
+}
+#allItems,#Ul1{
+  list-style:none;
+}
+#dragdiv,#dropdiv{
+  width:auto;
+  height:auto;
+  list-style:none;
+  margin-left:-30px;
+  }
+
+li{
+    list-style:none;
+    background-color:#444;
+    color:white;
+    font-size:12px;
+    padding:1pt;
+
+  }
+th{
+    font-size:10px;
+  }
+
+.table th{
+  background-color: #111;
+}
+
+#maindiv{
+  border: none;
+}
+.table{
+  border-radius: 3pt;
+}
+
+.table th{
+  border-radius: 3pt;
+  border-top:none;
+}
+
+#team_table_color24 li{
+  display:inline-block;
+  padding:2px;
+  margin-left:2px;
+  white-space:pre-wrap;
+}
+
+#tt{
+  text-align: left;
+  margin-top:5px;
+
+}
+.instructions li {
+  padding: 5px;
+  background-color: #843;
+  border-radius: 4pt;
+
+}
+.instructions {
+    border-radius: 4pt;
+    background-color: #843;
+}
