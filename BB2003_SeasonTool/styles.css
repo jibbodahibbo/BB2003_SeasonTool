@@ -1,0 +1,82 @@
+.cft_code{
+
+  font-size: 8pt;
+  font-family: courier;
+  display: block;
+}
+
+
+#coach_text_row{
+  background-color: #FFF;
+  padding: 8px;
+}
+
+
+#coach_submission{
+
+}
+
+#coach_show .form-group{
+padding-right: 15px;
+
+}
+
+#schedule_tabs{
+padding:4px;
+font-size: 10px;
+}
+
+#collapsesched{
+  background-color:white;
+}
+
+.schedules_style{
+  background-color: #DDDD99;
+padding:20px;
+}
+
+.schedules_style .form-group{
+margin-left:20px;
+}
+
+.schedules_style h3{
+  background-color: #DDDD99;
+  padding: 10px;
+}
+
+
+.schedules_style h6{
+  background-color: #DDDD99;
+  padding: 8px;
+  margin-left:20px;
+  font-size: 12px;
+}
+
+
+
+.roster_style{
+  background-color: #88DDDD;
+  padding:20px;
+}
+
+.roster_style .form-group{
+  margin-left:20px;
+}
+
+.roster_style h3{
+  background-color: #88DDDD;
+  padding: 10px;
+}
+
+
+.roster_style h6{
+  background-color: #88DDDD;
+  padding: 8px;
+  margin-left:20px;
+  font-size: 12px;
+}
+
+
+#collapserost{
+  background-color:white;
+}
