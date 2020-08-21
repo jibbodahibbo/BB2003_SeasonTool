@@ -203,7 +203,13 @@ function populateRosterSorts(){
 
 ///Generates the coach file from all update functions
 function generateCoachFile(){
-  updateRosters_R(44);
+  for(var start_row = 0; start_row < coach_file_array.length; start_row++){
+    if (coach_file_array[start_row].length>10){
+      if (coach_file_array[start_row].slice(0,8)=="roster0=")
+      updateRosters_R(start_row);
+
+      }
+      }
 
   var myNode = document.getElementById("coach_text_show");
     while (myNode.firstChild) {
@@ -267,6 +273,13 @@ function submitS3CoachFile(){
   coach_file_text.value = season3coachfile;
   submitRCoachFile()
 }
+//submits the season5 coach file
+function submitS5CoachFile(){
+  coach_file_text = document.getElementById("coachfiletext");
+  coach_file_text.value = season5coachfile;
+  submitRCoachFile()
+}
+
 
 ///grabs all coach file and autofills forms
 function uploadCoachFile(){
@@ -286,8 +299,12 @@ function uploadCoachFile(){
       a.appendChild(document.createElement('br'));
     }
 
-    uploadRosters(44);
-
+    for(var start_row = 0; start_row < coach_file_array.length; start_row++){
+      if (coach_file_array[start_row].length>10){
+        if (coach_file_array[start_row].slice(0,8)=="roster0=")
+        uploadRosters(start_row);
+        }
+        }
 
 }
 

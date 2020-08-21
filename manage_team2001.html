@@ -20,20 +20,20 @@
 
 <!--Move above to shared header-->
 <script type="text/javascript">
-var BB2001 = false;  
+var BB2001 = true;
 </script>
 
 <script src="popper.min.js"></script>
-<script src="team_manager.js" charset="utf-8"></script>
+<script src="team_manager.js?version=3" charset="utf-8"></script>
 <script src="utilities.js" charset="utf-8"></script>
 <script src="fields.js" charset="utf-8"></script>
 <script src="team_names.js" charset="utf-8"></script>
 <script src="scheduleObj.js" charset="utf-8"></script>
 <script src="rosterObj.js" charset="utf-8"></script>
 <script src="teamRosterForm.js" charset="utf-8"></script>
-<script src="players.js" charset="utf-8"></script>
+<script src="players2001.js" charset="utf-8"></script>
 <script src="team_colors.js" charset="utf-8"></script>
-<script src="season3coachfile.js" charset="utf-8"></script>
+<script src="season5coachfile.js?version=3" charset="utf-8"></script>
 
 
     <meta charset="utf-8">
@@ -64,7 +64,7 @@ var BB2001 = false;
                 <label for="coachfiletext">Paste Coach File Text Below </label>
                 <br>
                 <button data-toggle="tooltip" data-placement="top" title="Copy and paste Coach File into text area below first" type="button" onclick="submitRCoachFile()" class="btn btn-primary mb-2"> Upload Roster</button>
-                <button data-toggle="tooltip" data-placement="top" title="Uses a copy of Season 3's coach file" type="button" onclick="submitS3CoachFile()" class="btn btn-success mb-2">Season 3 Rosters</button>
+                <button data-toggle="tooltip" data-placement="top" title="Uses a copy of Season 3's coach file" type="button" onclick="submitS5CoachFile()" class="btn btn-success mb-2">Season 5 Rosters</button>
                 <textarea  style="font-size: 8pt" class="form-control" id="coachfiletext" rows="30"></textarea>
               </div>
           </form>
@@ -84,7 +84,7 @@ var BB2001 = false;
             Copy Coach File
           </button>
           <button data-toggle="tooltip" data-placement="top" title="Downloads the coach file,  don't forget to generate the file after any changes" class="btn btn-success" type="button" >
-            <a style="text-decoration:none;color:white;" id="coach_download" href="" download="Baseball2003.c01">Download Coach File</a>
+            <a style="text-decoration:none;color:white;" id="coach_download" href="" download="baseball2001.c01">Download Coach File</a>
           </button>
 
           <script type="text/javascript">
